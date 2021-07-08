@@ -65,17 +65,18 @@ nav ul li a {
 }
 /* ten blobek niebieski */
 .blob{
-  display: block;
+  display: flex;
   fill: #1a58ae;
+  margin-top: 4rem;
   margin-left: 8rem;
-  height: 800px;
-  width: 1000px;
+  height: 700px;
+  width: 900px;
   max-width: 100%;
   max-height: 100%;
 }
 
 .img-in-blob{
-  width: 200px;
+  width: 180px;
 }
 
 .text {
@@ -96,21 +97,36 @@ nav ul li a {
   font-size: 2rem;
 }
 
-.cv{
-  margin: 5rem 0 ;
-}
-
 .cv a{
-  background-color: #eed486;
+  /* background-color: #eed486; */
   border-radius: 40px;
   color: #1a58ae;
   display: inline-block;
   font-size: 2rem;
   font-weight: 700; 
-  margin-right: 2rem;
+  margin: 5rem 0;
   padding: 2rem 4rem;
-  text-decoration: none;
   text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+
+/* kolejna proba ladne przycisku */
+  box-shadow: 0 0 20px rgba(0, 0, 0, .2);
+  background: linear-gradient(45deg, #D2D0CA, #CFEEF7, #9DD5EB);
+	background-size: 150% 150%;
+	animation: gradient 5s ease infinite;
+
+}
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
 
 
