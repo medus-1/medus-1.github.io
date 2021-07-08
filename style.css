@@ -105,34 +105,14 @@ nav ul li a {
   border-radius: 40px;
   color: #1a58ae;
   display: inline-block;
-  /* font-size: 2rem;  jak nie bedzie wave odkomentowac*/
-  /* font-weight: 700;  jak nie bedzie wave odkomentowac*/
+  font-size: 2rem;
+  font-weight: 700; 
   margin-right: 2rem;
   padding: 2rem 4rem;
   text-decoration: none;
   text-align: center;
+}
 
-  /* proba zrobienia wave na get my cv */
-  text-transform: uppercase;
-  font-weight: 800;
-  font-size: 4rem;
-  color: rgba(255, 255, 255, 0.1);
-  background: url("images/wave.png");
-  -webkit-background-clip: text;
-  background-repeat: repeat-x;
-  animation: animate 2s linear infinite;
-}
-@keyframes animate
-{
-  0%
-  {
-    background-position: 0px;
-  }
-  100%
-  {
-    background-position: 200px;
-  }
-}
 
 .icons {
   
@@ -170,7 +150,27 @@ nav ul li a {
 
 .center h2 {
   margin: 2rem 0 0;
+  /* text-transform: uppercase; */
+    /* proba zrobienia wave na get my cv */
   text-transform: uppercase;
+  font-weight: 800;
+  font-size: 4rem;
+  color: rgba(255, 255, 255, 0.5);
+  background: url("images/wave.png");
+  -webkit-background-clip: text;
+  background-repeat: repeat-x;
+  animation: animate 2s linear infinite;
+}
+@keyframes animate
+{
+  0%
+  {
+    background-position: 0px;
+  }
+  100%
+  {
+    background-position: 200px;
+  }
 }
 
 
