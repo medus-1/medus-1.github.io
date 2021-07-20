@@ -5,14 +5,17 @@
 }
 
 body {
-  margin: 0;
   display: flex;
   flex-direction: column;
+  margin: 0;
+  padding: 0;
 }
 
 header {
   position: sticky;
   top: 0;
+  /* z-index aby pomimo timeline na position absolute header z nav byl wyzej i nie nakladal sie na niego timeline */
+  z-index: 1020; 
 }
 
 nav {
@@ -102,7 +105,7 @@ nav ul li a {
   border-radius: 40px;
   color: #1a58ae;
   display: inline-block;
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 700; 
   margin: 5rem 0;
   padding: 2rem 4rem;
@@ -112,9 +115,9 @@ nav ul li a {
 
 /* kolejna proba ladne przycisku */
   box-shadow: 0 0 20px rgba(0, 0, 0, .2);
-  background: linear-gradient(45deg, #D2D0CA, #CFEEF7, #9DD5EB);
+  background: linear-gradient(45deg, #d2d0ca, #CFEEF7, #9DD5EB);
 	background-size: 150% 150%;
-	animation: gradient 5s ease infinite;
+	animation: gradient 3s ease infinite;
 
 }
 @keyframes gradient {
@@ -220,14 +223,15 @@ nav ul li a {
   display: flex;
   justify-content: center;
   margin: 0;
-  padding: 0 0 4rem;
+  padding: 0 0 3rem;
 }
 
 .skills ul li {
   font-size: 7rem;
   list-style-type: none;
-  margin-left: 2rem;
+  margin: 1rem 2rem;
 }
+
 
 /* sekcja czwarta */
 .experience {
@@ -239,7 +243,7 @@ nav ul li a {
 }
 
 
-/* sekcja piate */
+/* sekcja piata */
 .education {
   background-color: #B6E5F4;
   color: #1a58ae;
@@ -268,4 +272,193 @@ footer .center p {
   font-size: 1.5rem;
   justify-content: flex-end;
   margin: 0 3rem;
+}
+
+
+/* -------------------------------------TIMELINE-------------------- */
+/* zamienieć wszystkie px na rem tam gdzie sie da */
+
+.timeline {
+  position: relative;
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 15px 0;
+}
+
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  background: #1a58ae;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -1px;
+}
+
+.container {
+  padding: 15px 30px;
+  position: relative;
+  background: inherit;
+  width: 50%;
+}
+
+.container.left {
+  left: 0;
+}
+
+.container.right {
+  left: 50%;
+}
+
+.container::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: calc(50% - 8px);
+  right: -0.6rem;
+  background: #ffffff;
+  border: 2px solid #1a58ae;
+  border-radius: 16px;
+  z-index: 1;
+}
+
+.container.right::after {
+  left: -0.6rem;
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 2px;
+  top: calc(50% - 1px);
+  right: 0.6rem;
+  background: #1a58ae;
+  z-index: 1;
+}
+
+.container.right::before {
+  left: 0.6rem;
+}
+
+.container .date {
+  position: absolute;
+  display: inline-block;
+  top: calc(50% - 8px);
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a58ae;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  z-index: 1;
+}
+
+.container.left .date {
+  right: -250px;
+}
+
+.container.right .date {
+  left: -250px;
+}
+
+.container .icon {
+  position: absolute;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  padding: 9px 0;
+  top: calc(50% - 20px);
+  background: #F1ECE5;
+  border: 2px solid #1a58ae;
+  border-radius: 40px;
+  text-align: center;
+  font-size: 18px;
+  color: #1a58ae;
+  z-index: 1;
+}
+
+.container.left .icon {
+  right: 56px;
+}
+
+.container.right .icon {
+  left: 56px;
+}
+
+.container .content {
+  padding: 30px 90px 30px 30px;
+  background: #F1ECE5;
+  position: relative;
+  border-radius: 500px 500px 500px 500px;
+}
+
+.container.right .content {
+  padding: 30px 30px 30px 90px;
+  /* border-radius: 500px 500px 500px 500px; */
+  border-radius: 10rem;
+}
+
+.container .content h2 {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+  font-weight: normal;
+  color: #1a58ae;
+  text-align: center;
+}
+
+.container .content p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 22px;
+  color: #1a58ae;
+  text-align: center;
+}
+
+@media (max-width: 767.98px) {
+  .timeline::after {
+    left: 90px;
+  }
+
+  .container {
+    width: 100%;
+    padding-left: 120px;
+    padding-right: 30px;
+  }
+
+  .container.right {
+    left: 0%;
+  }
+
+  .container.left::after, 
+  .container.right::after {
+    left: 82px;
+  }
+
+  .container.left::before,
+  .container.right::before {
+    left: 100px;
+    border-color: transparent #006E51 transparent transparent;
+  }
+
+  .container.left .date,
+  .container.right .date {
+    right: auto;
+    left: 15px;
+  }
+
+  .container.left .icon,
+  .container.right .icon {
+    right: auto;
+    left: 146px;
+  }
+
+  .container.left .content,
+  .container.right .content {
+    padding: 30px 30px 30px 90px;
+    border-radius: 500px 0 0 500px;
+  }
 }
